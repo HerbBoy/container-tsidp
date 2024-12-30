@@ -11,7 +11,7 @@ ENV GOARCH=amd64
 WORKDIR /go/src
 
 # Clone the repository
-RUN curl -fsSL "https://api.github.com/repos/tailscale/tailscale/tarball/v1.78.1" \
+RUN curl -fsSL "https://api.github.com/repos/tailscale/tailscale/tarball/v1.78.0" \
     | tar xzf - -C /go/src --strip-components=1
 
 # Navigate to the directory containing the source code and build it
