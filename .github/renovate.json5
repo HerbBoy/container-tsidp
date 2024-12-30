@@ -3,15 +3,13 @@
   "extends": [
     "config:recommended"
   ],
-  "dockerfile": {
-    "fileMatch": ["Containerfile"],
-    "packageRules": [
-      {
-        "matchDatasources": ["github-releases"],
-        "matchPackageNames": ["tailscale/tailscale"],
-        "extractVersion": "v(\\d+\\.\\d+\\.\\d+)",
-        "enabled": true
-      }
-    ]
-  }
+  "customManagers": [
+    {
+      "customType": "regex",
+      "fileMatch": ["^Dockerfile$"],
+      "matchStrings": ["RUN curl.*tailscale\/tailscale\/tarball\/(?<currentValue>v\\d\\.\\d+\\.\\d?)\""],
+      "depNameTemplate": "tailscale/tailscale",
+      "datasourceTemplate": "github-releases"
+    }
+  ]
 }
