@@ -3,13 +3,15 @@
   "extends": [
     "config:recommended"
   ],
-  "packageRules": [
-    {
-      "matchDatasources": ["github-releases"],
-      "matchPackageNames": ["tailscale/tailscale"],
-      "fileMatch": ["Containerfile"],
-      "extractVersion": "tarball\/(?<version>v\\d.)+",
-      "enabled": true
-    }
-  ]
+  "dockerfile": {
+    "fileMatch": ["Containerfile"],
+    "packageRules": [
+      {
+        "matchDatasources": ["github-releases"],
+        "matchPackageNames": ["tailscale/tailscale"],
+        "extractVersion": "v(\\d+\\.\\d+\\.\\d+)",
+        "enabled": true
+      }
+    ]
+  }
 }
