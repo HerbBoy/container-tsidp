@@ -2,7 +2,7 @@
   "customManagers": [
     {
       "customType": "regex",
-      "fileMatch": ["^Dockerfile$"],
+      "fileMatch": ["Containerfile"],
       "matchStrings": ["RUN curl.*tailscale\/tailscale\/tarball\/(?<currentValue>v\\d\\.\\d+\\.\\d?)\""],
       "depNameTemplate": "tailscale/tailscale",
       "datasourceTemplate": "github-releases"
